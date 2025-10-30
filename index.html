@@ -3,37 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Quiz Game</title>
+  <title>Interactive Navbar Page</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>🧠 Interactive Quiz Game</h1>
 
-    <!-- Start Screen -->
-    <div id="start-screen">
-      <p>Think you're ready? Test your knowledge in this fun interactive quiz!</p>
-      <button id="start-btn">Start Quiz 🚀</button>
+<header>
+  <nav class="navbar">
+    <div class="logo">MyLogo</div>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#services">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#web">Web Design</a></li>
+          <li><a href="#app">App Development</a></li>
+          <li><a href="#seo">SEO</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span></span><span></span><span></span>
     </div>
+  </nav>
+</header>
 
-    <!-- Quiz Screen -->
-    <div id="quiz-screen" class="hidden">
-      <div id="progress-container">
-        <div id="progress-bar"></div>
-      </div>
-      <h2 id="question-number"></h2>
-      <div id="question-container"></div>
-      <button id="next-btn" class="hidden">Next ➡️</button>
-    </div>
+<!-- Main sections -->
+<section id="home" class="section home">
+  <h1>Welcome to My Website</h1>
+  <p>Scroll down to explore interactive effects.</p>
+</section>
 
-    <!-- Result Screen -->
-    <div id="result-screen" class="hidden">
-      <h2>Your Final Score: <span id="score"></span></h2>
-      <p id="feedback"></p>
-      <button id="restart-btn">Restart 🔁</button>
-    </div>
-  </div>
+<section id="services" class="section services">
+  <h1>Our Services</h1>
+  <p>We provide Web Design, App Development, and SEO Optimization.</p>
+</section>
 
-  <script src="script.js"></script>
+<section id="about" class="section about">
+  <h1>About Us</h1>
+  <p>We are a creative digital agency passionate about modern UI experiences.</p>
+</section>
+
+<section id="contact" class="section contact">
+  <h1>Contact Us</h1>
+  <p>Get in touch: hello@example.com</p>
+</section>
+
+<script>
+  // Scroll color change
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  // Hamburger toggle
+  const ham = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  ham.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    ham.classList.toggle("active");
+  });
+</script>
+
 </body>
 </html>
+
